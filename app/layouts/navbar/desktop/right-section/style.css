@@ -1,0 +1,23 @@
+@tailwind components;
+
+@layer components {
+  .nav-display-style {
+    @apply hidden lg:block;
+  }
+
+  .ul-navigation-style {
+    @apply flex gap-10;
+  }
+
+  .li-style-group {
+    @apply relative inline-block;
+  }
+
+  .link-active-desktop {
+    @apply border-b border-[#57BEEA] pb-[2.5px] text-[#012F5B] font-bold;
+  }
+
+  .link-span-animated {
+    @apply ease-out absolute bottom-0 left-0 h-0 w-0 border-b-[1px] border-[#57BEEA] transition-all duration-200 group-hover:w-full;
+  }
+}

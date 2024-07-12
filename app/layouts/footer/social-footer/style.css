@@ -1,0 +1,19 @@
+@tailwind components;
+
+@layer components {
+  .principal-social-footer {
+    @apply flex flex-col gap-4;
+  }
+
+  .img-footer-container {
+    @apply flex flex-col gap-4;
+  }
+
+  .img-section-footer {
+    @apply flex items-center cursor-pointer;
+  }
+
+  .social-media-list {
+    @apply flex gap-4;
+  }
+}

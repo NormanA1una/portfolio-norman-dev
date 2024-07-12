@@ -1,0 +1,7 @@
+@tailwind components;
+
+@layer components {
+  .left-section-navbar {
+    @apply flex items-center cursor-pointer;
+  }
+}
