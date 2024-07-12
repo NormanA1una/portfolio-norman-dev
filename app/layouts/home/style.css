@@ -1,0 +1,7 @@
+@tailwind components;
+
+@layer components {
+  .home-bg-container {
+    @apply bg-center bg-no-repeat bg-cover;
+  }
+}

@@ -2,6 +2,6 @@
 
 @layer components {
   .primary-h2-style {
-    @apply text-xl lg:text-3xl font-bold;
+    @apply text-xl lg:text-3xl font-semibold;
   }
 }

@@ -1,7 +1,7 @@
 @tailwind components;
 
 @layer components {
-  .primary-h2-style {
+  .primary-p-style {
     @apply text-base font-normal;
   }
 }
