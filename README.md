@@ -18,7 +18,7 @@ First, build your app for production:
 npm run build
 ```
 
-Then run the app in production mode:
+Then run the app in production mode!:
 
 ```sh
 npm start
