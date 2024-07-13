@@ -9,23 +9,32 @@ export const Home = () => {
       className="home-bg-container"
       style={{ backgroundImage: "url(/images/largeTrianglesBg.svg)" }}
     >
-      <div className="px-4 py-10">
-        <div className="flex flex-col justify-center gap-4">
+      <div className="home-main-container">
+        <div className="home-principal-texts">
           <div>
             <H1 variant="hero" style={{ color: "#FCFCFC" }}>
-              <span className="text-2xl">Hi, I'm</span>
+              <span className="span-style-greeting">Hi, I'm</span>
               <br />
               Norman Aranda Luna
+              <br />
+              <span className="text-5xl">Software engineer</span>
             </H1>
           </div>
 
           <div>
             <H2 style={{ color: "#d1cfcf", fontWeight: 400 }}>
-              Software engineer with over 2 years of experience. I invite you to
-              take a look at my website to learn more about who I am and the
-              projects I've worked on.
+              With over 2 years of experience. I invite you to take a look at my
+              website to learn more about who I am and the projects I've worked
+              on.
             </H2>
           </div>
+        </div>
+
+        <div>
+          <img
+            src="/images/animationHome.gif"
+            alt="Man sitting at a desk writing code"
+          />
         </div>
       </div>
     </div>

@@ -4,4 +4,16 @@
   .home-bg-container {
     @apply bg-center bg-no-repeat bg-cover;
   }
+
+  .home-main-container {
+    @apply flex flex-col items-center justify-around px-6 py-10 h-[calc(100vh-64px)];
+  }
+
+  .home-principal-texts {
+    @apply flex flex-col justify-center gap-10;
+  }
+
+  .span-style-greeting {
+    @apply text-2xl;
+  }
 }

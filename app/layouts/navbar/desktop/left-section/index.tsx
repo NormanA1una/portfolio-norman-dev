@@ -17,7 +17,7 @@ export const LeftSectionNavbar = () => {
     >
       <div>
         <img
-          src="/images/moonIcon.png"
+          src="/images/moonIcon.svg"
           alt="Purple Moon in navbar"
           loading="eager"
           width={48}

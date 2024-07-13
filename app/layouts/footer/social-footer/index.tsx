@@ -21,7 +21,7 @@ export const SocialSectionFooter = () => {
         >
           <div>
             <img
-              src="/images/moonIcon.png"
+              src="/images/moonIcon.svg"
               alt="Purple Moon in footerr"
               loading="lazy"
               width={48}

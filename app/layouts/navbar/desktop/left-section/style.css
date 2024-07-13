@@ -2,6 +2,6 @@
 
 @layer components {
   .left-section-navbar {
-    @apply flex items-center cursor-pointer;
+    @apply flex items-center cursor-pointer gap-2;
   }
 }

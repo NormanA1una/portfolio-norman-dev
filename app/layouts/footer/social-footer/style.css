@@ -10,7 +10,7 @@
   }
 
   .img-section-footer {
-    @apply flex items-center cursor-pointer;
+    @apply flex items-center cursor-pointer gap-2;
   }
 
   .social-media-list {
