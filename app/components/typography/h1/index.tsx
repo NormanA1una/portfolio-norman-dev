@@ -2,7 +2,7 @@ import "./style.css";
 import { CSSProperties, FC, PropsWithChildren } from "react";
 
 type H1Props = {
-  variant?: "primary" | "secondary" | "hero";
+  variant?: "primary" | "secondary" | "hero" | "nav";
   style?: CSSProperties;
 };
 
@@ -21,6 +21,13 @@ export const H1: FC<PropsWithChildren & H1Props> = ({
   if (variant === "hero")
     return (
       <h1 className="hero-h1-style" style={style}>
+        {children}
+      </h1>
+    );
+
+  if (variant === "nav")
+    return (
+      <h1 className="nav-h1-style" style={style}>
         {children}
       </h1>
     );

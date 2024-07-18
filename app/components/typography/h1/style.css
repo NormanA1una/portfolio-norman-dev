@@ -5,7 +5,11 @@
     @apply text-4xl lg:text-4xl font-bold;
   }
 
+  .nav-h1-style {
+    @apply text-xl lg:text-4xl font-bold;
+  }
+
   .primary-h1-style {
-    @apply text-2xl lg:text-4xl font-bold;
+    @apply text-4xl lg:text-4xl font-bold;
   }
 }

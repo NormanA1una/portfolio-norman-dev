@@ -1,8 +1,23 @@
 @tailwind components;
 
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(-3%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+.bounce-animate {
+  animation: bounce 1s infinite;
+}
+
 @layer components {
   .home-bg-container {
-    @apply bg-center bg-no-repeat bg-cover;
+    @apply bg-center bg-no-repeat bg-cover mb-10;
   }
 
   .home-main-container {
@@ -15,5 +30,9 @@
 
   .span-style-greeting {
     @apply text-2xl;
+  }
+
+  .img-pass-section {
+    @apply bounce-animate cursor-pointer;
   }
 }

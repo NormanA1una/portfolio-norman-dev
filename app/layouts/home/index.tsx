@@ -1,9 +1,12 @@
+import { useNavigate } from "@remix-run/react";
 import "./style.css";
 
 import { H1 } from "~/components/typography/h1";
 import { H2 } from "~/components/typography/h2";
 
 export const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <div
       className="home-bg-container"
@@ -30,10 +33,18 @@ export const Home = () => {
           </div>
         </div>
 
-        <div>
+        <div
+          className="img-pass-section"
+          onClick={() =>
+            navigate({
+              hash: "#skills",
+            })
+          }
+        >
           <img
-            src="/images/animationHome.gif"
-            alt="Man sitting at a desk writing code"
+            src="/images/arrowDown.svg"
+            alt="White arrow looking down"
+            className="h-[100px] w-auto"
           />
         </div>
       </div>

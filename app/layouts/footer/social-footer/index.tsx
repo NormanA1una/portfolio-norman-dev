@@ -28,7 +28,9 @@ export const SocialSectionFooter = () => {
               height={48}
             />
           </div>
-          <H1 style={{ color: "#FCFCFC" }}>Norman Aranda Luna</H1>
+          <H1 variant="nav" style={{ color: "#FCFCFC" }}>
+            Norman Aranda Luna
+          </H1>
         </div>
         <Paragraph style={{ color: "#d1cfcf" }}>
           Working with enthusiasm and learning every day.

@@ -24,7 +24,9 @@ export const LeftSectionNavbar = () => {
           height={48}
         />
       </div>
-      <H1>Norman Aranda Luna</H1>
+      <H1 variant="nav" style={{ color: "#FCFCFC" }}>
+        Norman Aranda Luna
+      </H1>
     </div>
   );
 };
