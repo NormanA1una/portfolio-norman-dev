@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Home } from "~/layouts/home";
+import { Projects } from "~/layouts/projects";
 import { Skills } from "~/layouts/skills";
 
 export const meta: MetaFunction = () => {
@@ -18,6 +19,7 @@ export default function Index() {
     <>
       <Home />
       <Skills />
+      <Projects />
     </>
   );
 }

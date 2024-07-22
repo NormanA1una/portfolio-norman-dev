@@ -22,7 +22,10 @@ const skills = [
 
 export const Skills = () => {
   return (
-    <div id="skills" className="px-6 pt-20 pb-10 flex flex-col gap-8">
+    <div
+      id="skills"
+      className="px-6 pt-20 pb-10 flex flex-col gap-8 bg-[#7b7b7b]/[10%]"
+    >
       <div className="flex flex-col gap-6">
         <div>
           <H1 variant="primary">Technical Skills</H1>

@@ -1,0 +1,19 @@
+@tailwind components;
+
+@layer components {
+  .project-section-style {
+    @apply bg-[#f2f2f2] px-6 pt-20 pb-10 flex flex-col gap-8;
+  }
+
+  .titles-spacing {
+    @apply flex flex-col gap-6;
+  }
+
+  .project-card-close {
+    @apply bg-top bg-no-repeat rounded-lg relative flex transition-all ease-in-out duration-[0.5s] h-[56px] items-center justify-center w-full bg-cover cursor-pointer;
+  }
+
+  .project-card-open {
+    @apply bg-center bg-no-repeat bg-cover rounded-lg relative flex items-end h-[275px];
+  }
+}

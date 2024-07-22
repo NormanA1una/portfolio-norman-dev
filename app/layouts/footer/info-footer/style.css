@@ -10,6 +10,6 @@
   }
 
   .list-footer {
-    @apply text-[#d1cfcf] flex flex-col gap-3;
+    @apply text-[#ffffff] flex flex-col gap-3;
   }
 }

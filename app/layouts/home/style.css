@@ -17,11 +17,15 @@
 
 @layer components {
   .home-bg-container {
-    @apply bg-center bg-no-repeat bg-cover mb-10;
+    @apply bg-center bg-no-repeat bg-cover relative z-[-2];
+  }
+
+  .home-gradient-bg {
+    @apply bg-gradient-to-b from-[#f2f2f200] from-60% via-[#f2f2f257] via-80% to-[#f2f2f2] to-[99%] absolute top-0 right-0 left-0 bottom-0 z-[-1];
   }
 
   .home-main-container {
-    @apply flex flex-col items-center justify-around px-6 py-10 h-[calc(100vh-64px)];
+    @apply flex flex-col items-center justify-around px-6 pt-10 pb-20 h-[calc(100vh-64px)];
   }
 
   .home-principal-texts {

@@ -47,6 +47,6 @@
   }
 
   .link-active-mobile {
-    @apply border-b border-[#57BEEA] pb-[2.5px] text-[#012F5B] font-bold;
+    @apply border-b border-[#6a2475] pb-[2.5px] text-[#6a2475] font-bold;
   }
 }
