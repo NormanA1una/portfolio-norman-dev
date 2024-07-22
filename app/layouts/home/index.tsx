@@ -12,7 +12,8 @@ export const Home = () => {
       className="home-bg-container"
       style={{ backgroundImage: "url(/images/largeTrianglesBg.svg)" }}
     >
-      <div className="home-gradient-bg"></div>
+      <div className="home-gradient-bg" />
+
       <div className="home-main-container">
         <div className="home-principal-texts">
           <div>
