@@ -4,4 +4,8 @@
   .primary-p-style {
     @apply text-base font-normal;
   }
+
+  .form-p-style {
+    @apply text-base font-medium text-[#FCFCFC];
+  }
 }

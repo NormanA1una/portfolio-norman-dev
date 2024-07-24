@@ -1,0 +1,7 @@
+@tailwind components;
+
+@layer components {
+  .button-contained-style {
+    @apply bg-[#141414] px-6 py-2 rounded-md;
+  }
+}

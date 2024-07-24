@@ -1,19 +1,51 @@
-import { Link } from "react-router-dom";
 import "./style.css";
 
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { H1 } from "~/components/typography/h1";
 import { H3 } from "~/components/typography/h3";
 import { H6 } from "~/components/typography/h6";
 import { Paragraph } from "~/components/typography/paragraph";
 
+const PROJECTS = [
+  {
+    title: "IMMIGRATIONS DOCS LLC",
+    description:
+      "A website focused on sending immigration documents to be translated by experts.",
+    url: "https://immigrationdocsllc.com/",
+    img: "url(/images/IDLLC.webp)",
+  },
+  {
+    title: "TENNESSEE ROOTS TREE SERVICES",
+    description:
+      "Tennessee Roots Tree Services is dedicated to providing professional tree care services in Tennessee.",
+    url: "https://www.tnrootstreecompany.com/",
+    img: "url(/images/TNRTS.webp)",
+  },
+  {
+    title: "SHUTTLE IT CONSULTING",
+    description:
+      "Digital solutions provider that assists you in crafting visually appealing websites while addressing company challenges.",
+    url: "https://www.shuttleconsulting.com/",
+    img: "url(/images/SHUTTLE.webp)",
+  },
+];
+
 export const Projects = () => {
-  const [projectOpen, setProjectOpen] = useState(false);
+  const [projectOpenIndex, setProjectOpenIndex] = useState<number | null>(null);
   const [showContent, setShowContent] = useState(false);
+
+  const toggleProject = (index: number) => {
+    if (projectOpenIndex === index) {
+      setProjectOpenIndex(null);
+    } else {
+      setProjectOpenIndex(index);
+    }
+  };
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
-    if (projectOpen) {
+    if (projectOpenIndex !== null) {
       timer = setTimeout(() => {
         setShowContent(true);
       }, 150);
@@ -21,9 +53,19 @@ export const Projects = () => {
       setShowContent(false);
     }
     return () => clearTimeout(timer);
-  }, [projectOpen]);
+  }, [projectOpenIndex]);
 
-  const renderProjectInfo = () => {
+  type RenderProjectInfoProps = {
+    title: string;
+    description: string;
+    url: string;
+  };
+
+  const renderProjectInfo = ({
+    title,
+    description,
+    url,
+  }: RenderProjectInfoProps) => {
     return (
       <div>
         <div className="bg-[#7b7b7bbc] relative z-[1] flex flex-col px-4 pt-4 pb-9">
@@ -35,19 +77,16 @@ export const Projects = () => {
                 fontWeight: 700,
               }}
             >
-              IMMIGRATIONS DOCS LLC
+              {title}
             </H3>
-            <H6 style={{ color: "#FCFCFC" }}>
-              A website focused on sending immigration documents to be
-              translated by experts.
-            </H6>
+            <H6 style={{ color: "#FCFCFC" }}>{description}</H6>
           </div>
           <div>
             <button
               style={{ color: "#FCFCFC" }}
               onClick={(e) => e.stopPropagation()}
             >
-              <Link to={"https://immigrationdocsllc.com/"} target="_blank">
+              <Link to={url} target="_blank">
                 View website
               </Link>
             </button>
@@ -72,36 +111,49 @@ export const Projects = () => {
         </div>
       </div>
 
-      <div>
-        <div
-          className={`project-card-close ${
-            projectOpen ? "project-card-open" : undefined
-          }`}
-          style={{ backgroundImage: "url(/images/IDLLC.webp)" }}
-          onClick={() => setProjectOpen(!projectOpen)}
-        >
-          <div
-            className={
-              "bg-[#0000009b] absolute top-0 bottom-0 w-full rounded-lg"
-            }
-          />
-          {projectOpen ? (
-            showContent && renderProjectInfo()
-          ) : (
-            <div className="relative z-[1]">
-              <H3
-                variant="primary"
-                style={{
-                  color: "#FCFCFC",
-                  fontWeight: 700,
-                  fontSize: projectOpen ? "20px" : undefined,
-                }}
-              >
-                IMMIGRATIONS DOCS LLC
-              </H3>
+      <div className="flex flex-col gap-6">
+        {PROJECTS.map((project, i) => {
+          const isOpen = projectOpenIndex === i;
+
+          return (
+            <div
+              className={`project-card-close ${
+                isOpen ? "project-card-open" : undefined
+              }`}
+              style={{ backgroundImage: project.img }}
+              onClick={() => {
+                toggleProject(i);
+              }}
+            >
+              <div
+                className={
+                  "bg-[#0000009b] absolute top-0 bottom-0 w-full rounded-lg"
+                }
+              />
+              {isOpen ? (
+                showContent &&
+                renderProjectInfo({
+                  title: project.title,
+                  description: project.description,
+                  url: project.url,
+                })
+              ) : (
+                <div className="relative z-[1]">
+                  <H3
+                    variant="primary"
+                    style={{
+                      color: "#FCFCFC",
+                      fontWeight: 700,
+                      fontSize: isOpen ? "20px" : undefined,
+                    }}
+                  >
+                    {project.title}
+                  </H3>
+                </div>
+              )}
             </div>
-          )}
-        </div>
+          );
+        })}
       </div>
     </div>
   );

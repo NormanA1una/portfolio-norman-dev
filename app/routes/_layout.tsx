@@ -4,7 +4,7 @@ import MainLayout from "~/layouts/main-layout";
 
 export const loader: LoaderFunction = async ({}) => {
   const pathNames = [
-    { name: "About me", nameSpanish: "Sobre mi", pathName: "#about" },
+    { name: "Skills", nameSpanish: "Habilidades", pathName: "#skills" },
     { name: "Projects", nameSpanish: "Proyectos", pathName: "#projects" },
     { name: "Contact", nameSpanish: "Contáctame", pathName: "#contact" },
   ];
