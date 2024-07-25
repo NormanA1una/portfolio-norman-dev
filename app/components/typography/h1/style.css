@@ -2,7 +2,7 @@
 
 @layer components {
   .hero-h1-style {
-    @apply text-4xl lg:text-4xl font-bold;
+    @apply text-4xl xl:leading-[60px] md:text-5xl font-bold;
   }
 
   .nav-h1-style {
@@ -10,6 +10,6 @@
   }
 
   .primary-h1-style {
-    @apply text-4xl lg:text-4xl font-bold;
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
   }
 }

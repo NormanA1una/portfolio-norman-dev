@@ -22,35 +22,35 @@ const skills = [
 
 export const Skills = () => {
   return (
-    <div
-      id="skills"
-      className="px-6 pt-20 pb-10 flex flex-col gap-8 bg-[#7b7b7b]/[10%]"
-    >
-      <div className="flex flex-col gap-6">
-        <div>
-          <H1 variant="primary">Technical Skills</H1>
+    <div id="skills" className="px-6 pt-20 pb-10 bg-[#f2f2f2] mb-28">
+      <div className="flex flex-col gap-8 xl:gap-20 xl:container xl:mx-auto">
+        <div className="flex flex-col gap-6">
+          <div>
+            <H1 variant="primary">Technical Skills</H1>
+          </div>
+          <div>
+            <H2 style={{ color: "#464646", fontWeight: 400 }}>
+              With a solid background in develop web application and experience
+              in various technologies like React, Node.js, and MySQL, I am
+              dedicated to building solutions that make a difference. Explore my
+              work and see how I can help you take your next project to the next
+              level.
+            </H2>
+          </div>
         </div>
-        <div>
-          <H2 style={{ color: "#464646", fontWeight: 400 }}>
-            With a solid background in develop web application and experience in
-            various technologies like React, Node.js, and MySQL, I am dedicated
-            to building solutions that make a difference. Explore my work and
-            see how I can help you take your next project to the next level.
-          </H2>
-        </div>
-      </div>
 
-      <div className="grid grid-cols-2 justify-items-center gap-y-6">
-        {skills.map((skill) => {
-          return (
-            <div
-              key={skill.alt}
-              className="hover:scale-125 transition ease-in-out duration-[0.3s]"
-            >
-              <img src={skill.path} alt={skill.alt} height={70} width={70} />
-            </div>
-          );
-        })}
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 justify-items-center gap-y-6 md:gap-y-8">
+          {skills.map((skill) => {
+            return (
+              <div
+                key={skill.alt}
+                className="hover:scale-125 transition ease-in-out duration-[0.3s]"
+              >
+                <img src={skill.path} alt={skill.alt} height={70} width={70} />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

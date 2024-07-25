@@ -50,9 +50,12 @@ export const Contact = () => {
 
   return (
     /* Bg */
-    <div className="bg-[#141414] py-10">
+    <div
+      id="contact"
+      className="bg-[#141414] py-10 xl:h-screen xl:flex xl:items-center xl:justify-center"
+    >
       {/* Card */}
-      <div className="bg-[#292929] rounded-lg px-4 py-8 flex flex-col gap-10">
+      <div className="bg-[#292929] rounded-lg px-4 py-8 flex flex-col gap-10 w-full lg:max-w-[600px] mx-auto">
         {/* Title */}
         <div>
           <H1 style={{ color: "#FCFCFC" }}>Contact</H1>

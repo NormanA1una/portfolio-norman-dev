@@ -3,6 +3,7 @@ import { Contact } from "~/layouts/contact";
 import { Home } from "~/layouts/home";
 import { Projects } from "~/layouts/projects";
 import { Skills } from "~/layouts/skills";
+import { sendEmail } from "~/utils/mailer.server";
 
 export const meta: MetaFunction = () => {
   return [
@@ -18,16 +19,23 @@ export const meta: MetaFunction = () => {
 export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData();
 
+  if ((formData.get("address") as string).toString().length > 0)
+    return json({ success: false });
+
   const formDataObject = {
-    name: formData.get("name"),
-    email: formData.get("email"),
-    message: formData.get("message"),
-    address: formData.get("address"),
+    name: formData.get("name") as string,
+    email: formData.get("email") as string,
+    message: formData.get("message") as string,
   };
 
-  console.log(formDataObject);
-
-  return json({ success: true });
+  try {
+    const messageService = await sendEmail(formDataObject).then((res) =>
+      res.json()
+    );
+    return json({ success: true, message: messageService.message });
+  } catch (error) {
+    return json({ success: false, error });
+  }
 };
 
 export default function Index() {

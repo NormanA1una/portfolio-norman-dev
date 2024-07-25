@@ -32,7 +32,7 @@ const PROJECTS = [
 ];
 
 export const Projects = () => {
-  const [projectOpenIndex, setProjectOpenIndex] = useState<number | null>(null);
+  const [projectOpenIndex, setProjectOpenIndex] = useState<number | null>(0);
   const [showContent, setShowContent] = useState(false);
 
   const toggleProject = (index: number) => {
@@ -67,8 +67,8 @@ export const Projects = () => {
     url,
   }: RenderProjectInfoProps) => {
     return (
-      <div>
-        <div className="bg-[#7b7b7bbc] relative z-[1] flex flex-col px-4 pt-4 pb-9">
+      <div className="w-full">
+        <div className="bg-[#7b7b7bbc] relative z-[1] flex flex-col px-4 pt-4 pb-9 w-full">
           <div>
             <H3
               variant="primary"
@@ -97,63 +97,66 @@ export const Projects = () => {
   };
 
   return (
-    <div id="projects" className="project-section-style">
-      <div className="titles-spacing">
-        <div>
-          <H1>Projects</H1>
+    <div id="projects" className="project-section-bg">
+      <div className="project-section-style">
+        <div className="titles-spacing">
+          <div>
+            <H1>Projects</H1>
+          </div>
+          <div>
+            <Paragraph>
+              I have worked on a variety of projects that demonstrate my ability
+              to solve complex problems and my commitment to quality. Here are
+              some of my most significant projects
+            </Paragraph>
+          </div>
         </div>
-        <div>
-          <Paragraph>
-            I have worked on a variety of projects that demonstrate my ability
-            to solve complex problems and my commitment to quality. Here are
-            some of my most significant projects
-          </Paragraph>
-        </div>
-      </div>
 
-      <div className="flex flex-col gap-6">
-        {PROJECTS.map((project, i) => {
-          const isOpen = projectOpenIndex === i;
+        <div className="flex flex-col lg:flex-row gap-6">
+          {PROJECTS.map((project, i) => {
+            const isOpen = projectOpenIndex === i;
 
-          return (
-            <div
-              className={`project-card-close ${
-                isOpen ? "project-card-open" : undefined
-              }`}
-              style={{ backgroundImage: project.img }}
-              onClick={() => {
-                toggleProject(i);
-              }}
-            >
+            return (
               <div
-                className={
-                  "bg-[#0000009b] absolute top-0 bottom-0 w-full rounded-lg"
-                }
-              />
-              {isOpen ? (
-                showContent &&
-                renderProjectInfo({
-                  title: project.title,
-                  description: project.description,
-                  url: project.url,
-                })
-              ) : (
-                <div className="relative z-[1]">
-                  <H3
-                    variant="primary"
-                    style={{
-                      color: "#FCFCFC",
-                      fontWeight: 700,
-                      fontSize: isOpen ? "20px" : undefined,
-                    }}
-                  >
-                    {project.title}
-                  </H3>
-                </div>
-              )}
-            </div>
-          );
-        })}
+                key={i}
+                className={`project-card-close ${
+                  isOpen ? "project-card-open" : undefined
+                }`}
+                style={{ backgroundImage: project.img }}
+                onClick={() => {
+                  toggleProject(i);
+                }}
+              >
+                <div
+                  className={
+                    "bg-[#0000009b] absolute top-0 bottom-0 w-full rounded-lg"
+                  }
+                />
+                {isOpen ? (
+                  showContent &&
+                  renderProjectInfo({
+                    title: project.title,
+                    description: project.description,
+                    url: project.url,
+                  })
+                ) : (
+                  <div className="relative z-[1] lg:-rotate-90">
+                    <H3
+                      variant="primary"
+                      style={{
+                        color: "#FCFCFC",
+                        fontWeight: 700,
+                        fontSize: isOpen ? "20px" : undefined,
+                      }}
+                    >
+                      {project.title}
+                    </H3>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

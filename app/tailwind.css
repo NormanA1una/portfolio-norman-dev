@@ -20,6 +20,6 @@ body {
 
 @layer components {
   .body-custom-style {
-    @apply pt-[64px];
+    @apply pt-[64px] bg-[#f2f2f2];
   }
 }

@@ -1,8 +1,12 @@
 @tailwind components;
 
 @layer components {
+  .project-section-bg {
+    @apply bg-[#f2f2f2] px-6 pt-20 pb-10 mb-32;
+  }
+
   .project-section-style {
-    @apply bg-[#f2f2f2] px-6 pt-20 pb-10 flex flex-col gap-8;
+    @apply flex flex-col gap-8 xl:container xl:mx-auto;
   }
 
   .titles-spacing {
@@ -10,10 +14,10 @@
   }
 
   .project-card-close {
-    @apply bg-top bg-no-repeat rounded-lg relative flex transition-all ease-in-out duration-[0.5s] h-[56px] items-center justify-center w-full bg-cover cursor-pointer;
+    @apply bg-top bg-no-repeat rounded-lg relative flex transition-all ease-in-out duration-[0.5s] h-[56px] lg:h-[275px] xl:h-[500px] lg:w-[150px] xl:w-[500px] items-center justify-center w-full bg-cover cursor-pointer;
   }
 
   .project-card-open {
-    @apply bg-center bg-no-repeat bg-cover rounded-lg relative flex items-end h-[275px];
+    @apply bg-center bg-no-repeat bg-cover rounded-lg relative flex items-end h-[275px] xl:h-[500px] w-full;
   }
 }

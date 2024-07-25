@@ -22,7 +22,7 @@ export const Home = () => {
               <br />
               Norman Aranda Luna
               <br />
-              <span className="text-5xl">Software engineer</span>
+              <span className="text-5xl md:text-6xl">Software engineer</span>
             </H1>
           </div>
 
