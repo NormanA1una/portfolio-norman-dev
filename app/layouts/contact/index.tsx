@@ -1,7 +1,13 @@
+import "./style.css";
+
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { MdOutlineEmail } from "react-icons/md";
 import { Button } from "~/components/button";
 import { H1 } from "~/components/typography/h1";
+import { H2 } from "~/components/typography/h2";
+import { H3 } from "~/components/typography/h3";
 import { Paragraph } from "~/components/typography/paragraph";
 import { useRemixFetcher } from "~/hooks/use-remix-fetcher";
 import { contactSchema } from "~/utils/schemas";
@@ -14,9 +20,11 @@ type FormProps = {
 };
 
 export const Contact = () => {
+  const [emailSuccess, setEmailSuccess] = useState(false);
+
   const fetcher = useRemixFetcher({
     onError: (e) => console.log(e),
-    onSuccess: () => console.log("Success!"),
+    onSuccess: () => setEmailSuccess(true),
   });
 
   const {
@@ -50,72 +58,96 @@ export const Contact = () => {
 
   return (
     /* Bg */
-    <div
-      id="contact"
-      className="bg-[#141414] py-10 xl:h-screen xl:flex xl:items-center xl:justify-center"
-    >
+    <div id="contact" className="contact-section-style">
       {/* Card */}
-      <div className="bg-[#292929] rounded-lg px-4 py-8 flex flex-col gap-10 w-full lg:max-w-[600px] mx-auto">
-        {/* Title */}
-        <div>
-          <H1 style={{ color: "#FCFCFC" }}>Contact</H1>
-        </div>
-
-        {/* Form */}
-        <fetcher.Form onSubmit={onSubmit} className="flex flex-col gap-3">
-          <div className="flex flex-col gap-2">
-            <label htmlFor="name">
-              <Paragraph variant="form">Name</Paragraph>
-            </label>
-            <input
-              {...register("name")}
-              type="text"
-              id="name"
-              className="w-full pl-3 py-3 rounded focus:outline-none bg-[#1f1f1f] text-[#FCFCFC] font-medium"
-            />
+      <div className="container-contact">
+        {emailSuccess ? (
+          <div className={`alert-container`}>
             <div>
-              <Paragraph variant="form" style={{ color: "#bc3433" }}>
-                {errors.name ? "Name fiel is required" : null}
-              </Paragraph>
+              <img
+                src="/images/emailSent.gif"
+                alt="Card sending animation"
+                width={200}
+                height={200}
+              />
+            </div>
+
+            <div className="text-center">
+              <H2 variant="primary" style={{ color: "#fff" }}>
+                Email Sent!
+              </H2>
+              <H3 style={{ color: "#fff" }}>Thanks for contacting me!</H3>
             </div>
           </div>
-
-          <div className="flex flex-col gap-2">
-            <label htmlFor="email">
-              <Paragraph variant="form">Email</Paragraph>
-            </label>
-            <input
-              {...register("email")}
-              type="text"
-              id="email"
-              className="w-full pl-3 py-3 rounded focus:outline-none bg-[#1f1f1f] text-[#FCFCFC] font-medium"
-            />
+        ) : (
+          <div className={`form-container `}>
+            {/* Title */}
             <div>
-              <Paragraph variant="form" style={{ color: "#bc3433" }}>
-                {errors.email ? "Enter a valid email" : null}
-              </Paragraph>
+              <H1 style={{ color: "#FCFCFC" }}>Contact</H1>
             </div>
-          </div>
 
-          <input {...register("address")} type="hidden" id="address" />
+            {/* Form */}
+            <fetcher.Form onSubmit={onSubmit} className="form-style">
+              <div className="form-input-container">
+                <label htmlFor="name">
+                  <Paragraph variant="form">Name</Paragraph>
+                </label>
+                <input
+                  {...register("name")}
+                  type="text"
+                  id="name"
+                  className="input-text-style"
+                />
+                <div>
+                  <Paragraph variant="form" style={{ color: "#bc3433" }}>
+                    {errors.name ? "Name fiel is required" : null}
+                  </Paragraph>
+                </div>
+              </div>
 
-          <div className="flex flex-col gap-2">
-            <label htmlFor="message">
-              <Paragraph variant="form">Message</Paragraph>
-            </label>
-            <textarea
-              {...register("message")}
-              id="message"
-              className="resize-none h-[90px] w-full pl-3 py-3 rounded focus:outline-none bg-[#1f1f1f] text-[#FCFCFC] font-medium"
-            ></textarea>
-          </div>
+              <div className="form-input-container">
+                <label htmlFor="email">
+                  <Paragraph variant="form">Email</Paragraph>
+                </label>
+                <input
+                  {...register("email")}
+                  type="text"
+                  id="email"
+                  className="input-text-style"
+                />
+                <div>
+                  <Paragraph variant="form" style={{ color: "#bc3433" }}>
+                    {errors.email ? "Enter a valid email" : null}
+                  </Paragraph>
+                </div>
+              </div>
 
-          <div>
-            <Button type="submit" variant="contained">
-              <Paragraph variant="form">SEND 📧</Paragraph>
-            </Button>
+              <input {...register("address")} type="hidden" id="address" />
+
+              <div className="form-input-container">
+                <label htmlFor="message">
+                  <Paragraph variant="form">Message</Paragraph>
+                </label>
+                <textarea
+                  {...register("message")}
+                  id="message"
+                  className="text-area-custom"
+                ></textarea>
+              </div>
+
+              <div>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  className="flex items-center gap-2"
+                >
+                  <Paragraph variant="form">SEND</Paragraph>
+                  <MdOutlineEmail color="#fff" className="text-xl" />
+                </Button>
+              </div>
+            </fetcher.Form>
           </div>
-        </fetcher.Form>
+        )}
       </div>
     </div>
   );

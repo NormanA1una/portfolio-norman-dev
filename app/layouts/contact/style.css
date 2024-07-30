@@ -1,0 +1,35 @@
+@tailwind components;
+
+@layer components {
+  .contact-section-style {
+    @apply bg-[#141414] py-10 xl:h-screen xl:flex xl:items-center xl:justify-center;
+  }
+
+  .container-contact {
+    @apply bg-[#292929] rounded-lg px-4 py-8 flex flex-col gap-10 w-full lg:max-w-[600px] mx-auto;
+  }
+
+  .alert-container {
+    @apply h-[454px] md:h-[542px] lg:h-[554px] flex flex-col justify-center items-center;
+  }
+
+  .form-container {
+    @apply flex flex-col gap-10;
+  }
+
+  .form-style {
+    @apply flex flex-col gap-3;
+  }
+
+  .form-input-container {
+    @apply flex flex-col gap-2;
+  }
+
+  .input-text-style {
+    @apply w-full pl-3 py-3 rounded focus:outline-none bg-[#1f1f1f] text-[#FCFCFC] font-medium;
+  }
+
+  .text-area-custom {
+    @apply resize-none h-[90px] input-text-style;
+  }
+}
