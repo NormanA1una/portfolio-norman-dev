@@ -24,7 +24,7 @@ export const Contact = () => {
 
   const fetcher = useRemixFetcher({
     onError: (e) => console.log(e),
-    onSuccess: () => setEmailSuccess(true),
+    onSuccess: () => console.log("Success!"),
   });
 
   const {
@@ -51,6 +51,7 @@ export const Contact = () => {
       });
 
       reset();
+      setEmailSuccess(true);
     } catch (error) {
       console.log(error);
     }
